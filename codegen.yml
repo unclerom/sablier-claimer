@@ -1,0 +1,24 @@
+schema: 'https://api.thegraph.com/subgraphs/name/sablierhq/sablier'
+documents: 'src/**/*.{ts,tsx}'
+generates:
+  src/Apollo/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+  src/Apollo/generated/helpers.ts:
+    plugins:
+      - typescript-apollo-client-helpers
+overwrite: true
+config:
+  withRefetchFn: true
+  withHooks: true
+  withHOC: false
+  withComponent: false
+  withMutationFn: false
+  apolloReactCommonImportFrom: '@apollo/client'
+  apolloReactHooksImportFrom: '@apollo/client'
+  gqlImport: '@apollo/client#gql'
+  namingConvention:
+    typeNames: pascal-case#pascalCase
+    enumValues: keep
